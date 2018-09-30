@@ -1,12 +1,12 @@
-public interface class Movable
+interface class Movable
 {
-	public abstract void moveUp();
-	public abstract void moveDown();
-	public abstract void moveLeft();
-	public abstract void moveRight();
+	void moveUp();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
 }
 
-public class MovablePoint extends Movable
+public class MovablePoint implements Movable
 {
 	default int x, y, xSpeed, ySpeed;
 
@@ -17,23 +17,26 @@ public class MovablePoint extends Movable
 		this.ySpeed = ySpeed;
 	}
 
-	public String toString()
+	public String toString(){
+		String str = "x: " + x + "\ny: " + y + "\nxSpeed: " + xSpeed + "\nySpeed: " + ySpeed;
+		return str;
+	}
 
-	public abstract void moveUp(){
+	void moveUp(){
 		y = ++y;
 	}
-	public abstract void moveDown(){
+	void moveDown(){
 		y = --y;
 	}
-	public abstract void moveLeft(){
+	void moveLeft(){
 		x = --x;
 	}
-	public abstract void moveRight(){
+	void moveRight(){
 		x = ++x;
 	}
 }
 
-public class MovableCircle extends Movable
+public class MovableCircle implements Movable
 {
 	private int radius;
 	private MovablePoint center;
@@ -46,7 +49,10 @@ public class MovableCircle extends Movable
 		this.radius = radius;
 	}
 
-	public String toString()
+	public String toString(){
+		String str = center.toString() + "\nRadius: " + radius;
+		return str;
+	}
 
 	public void moveUp(){
 		center.moveUp();
@@ -62,8 +68,27 @@ public class MovableCircle extends Movable
 	}
 }
 
-public static void main()
+public static void main(String args[])
 {
-	point = new(MovablePoint());
-	circle = new(MovableCircle());
+
+	MovablePoint point = new MovablePoint(1,3,1,1);
+	MovableCircle circle = new MovableCircle(1,3,1,1,5);
+
+	System.out.println("Info ponto: " + point.toString());
+	System.out.println("Info circle: " + circle.toString());
+
+	point.moveRight();
+	point.moveRight();
+	point.moveRight();
+	point.moveRight();
+	point.moveRight();
+
+	circle.moveLeft();
+	circle.moveLeft();
+	circle.moveRight();
+	circle.moveDown();
+	circle.moveDown();
+
+	System.out.println("Info ponto: " + point.toString());
+	System.out.println("Info circle: " + circle.toString());
 }

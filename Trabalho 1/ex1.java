@@ -1,9 +1,9 @@
-public abstract class Shape
+abstract class Shape
 {
 	protected String color;
 	protected boolean filled;
 
-	public Shape()
+	public Shape();
 
 	public Shape(String color, boolean filled){
 		this.color = color;
@@ -65,7 +65,13 @@ public class Circle extends Shape
 	public double getPerimeter(){
 		return 2 * 3.14159265359 * radius;
 	}
-	public String toStrig()
+	public String toString(){
+		String str = "Color: " + getColor() + "\n";
+		if(isFilled()) str += "Is filled";
+		else str += "Isn't filled";
+		str += "\nRadius: " + getRadius();
+		return str;
+	}
 }
 
 public class Rectangle extends Shape
@@ -110,5 +116,13 @@ public class Rectangle extends Shape
 	public double getPerimeter(){
 		return 2 * (width + length);
 	}
-	public String toStrig()
+
+	public String toString(){
+		String str = "Color: " + getColor() + "\n";
+		if(isFilled()) str += "Is filled";
+		else str += "Isn't filled";
+		str += "\nLength: " + getLength();
+		str += "\nWidth: " + getWidth();
+		return str;
+	}
 }
