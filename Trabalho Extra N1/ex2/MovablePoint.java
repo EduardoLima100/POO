@@ -15,15 +15,15 @@ public class MovablePoint
     }
 
     void moveUp(){
-        y = ++y;
+        y += ySpeed;
     }
     void moveDown(){
-        y = --y;
+        y -= ySpeed;
     }
     void moveLeft(){
-        x = --x;
+        x -= xSpeed;
     }
     void moveRight(){
-        x = ++x;
+        x += xSpeed;
     }
 }

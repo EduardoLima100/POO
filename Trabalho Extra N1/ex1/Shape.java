@@ -1,8 +1,12 @@
 public abstract class Shape
 {
+    protected String color;
     protected boolean filled;
 
-    public Shape();
+    public Shape(){
+    	color = new String("black"); // this(black,true); está chamando outro construtor
+    	filled = true;
+    }
 
     public Shape(String color, boolean filled){
         this.color = color;
