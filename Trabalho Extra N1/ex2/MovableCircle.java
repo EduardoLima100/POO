@@ -1,4 +1,4 @@
-public class MovableCircle
+public class MovableCircle implements Movable
 {
     private int radius;
     private MovablePoint center;
